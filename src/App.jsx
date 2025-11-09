@@ -10,10 +10,14 @@ import ProjectInquiry from './pages/ProjectInquiry'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsOfService from './pages/TermsOfService'
 import CookiePolicy from './pages/CookiePolicy'
+import { useSEO } from './utils/useSEO'
 
 // Scroll to top component using useLayoutEffect for synchronous execution
 function ScrollToTop() {
   const { pathname, hash } = useLocation()
+  
+  // Update SEO meta tags on route change
+  useSEO()
 
   useLayoutEffect(() => {
     // Prefer scrolling to the shared top anchor so fixed navbar doesn't overlap
