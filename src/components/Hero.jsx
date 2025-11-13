@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import React, { Suspense, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Canvas } from '@react-three/fiber'
@@ -6,7 +6,7 @@ import { OrbitControls, Sphere, MeshDistortMaterial, Environment } from '@react-
 
 function AnimatedSphere3D() {
   return (
-    <Sphere args={[1, 100, 100]} scale={2.5}>
+    <Sphere args={[1, 64, 64]} scale={2.5}>
       <MeshDistortMaterial
         color="#00E8FF"
         attach="material"
@@ -19,22 +19,66 @@ function AnimatedSphere3D() {
   )
 }
 
+function Scene3DContent() {
+  return (
+    <>
+      <OrbitControls 
+        enableZoom={false} 
+        enablePan={false} 
+        autoRotate 
+        autoRotateSpeed={0.5}
+        maxPolarAngle={Math.PI / 2}
+        minPolarAngle={Math.PI / 2}
+      />
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[10, 10, 5]} intensity={1} />
+      <pointLight position={[-10, -10, -5]} color="#FF6A00" intensity={0.5} />
+      <AnimatedSphere3D />
+      <Environment preset="night" />
+    </>
+  )
+}
+
 export default function Hero(){
+  const [show3D, setShow3D] = useState(false)
+
+  useEffect(() => {
+    // Only show 3D on devices that can handle it
+    const isDesktop = window.innerWidth > 768
+    const hasWebGL = (() => {
+      try {
+        const canvas = document.createElement('canvas')
+        return !!(window.WebGLRenderingContext && 
+          (canvas.getContext('webgl') || canvas.getContext('experimental-webgl')))
+      } catch (e) {
+        return false
+      }
+    })()
+    
+    setShow3D(isDesktop && hasWebGL)
+  }, [])
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-dark-950 via-dark-900 to-dark-800">
       {/* 3D Background */}
-      <div className="absolute inset-0 opacity-40">
-        <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
-          <Suspense fallback={null}>
-            <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />
-            <ambientLight intensity={0.5} />
-            <directionalLight position={[10, 10, 5]} intensity={1} />
-            <pointLight position={[-10, -10, -5]} color="#FF6A00" intensity={0.5} />
-            <AnimatedSphere3D />
-            <Environment preset="night" />
-          </Suspense>
-        </Canvas>
-      </div>
+      {show3D && (
+        <div className="absolute inset-0 opacity-40">
+          <Canvas 
+            camera={{ position: [0, 0, 5], fov: 45 }}
+            dpr={[1, 1.5]}
+            performance={{ min: 0.5 }}
+          >
+            <Suspense fallback={null}>
+              <Scene3DContent />
+            </Suspense>
+          </Canvas>
+        </div>
+      )}
+      
+      {/* Fallback gradient for non-3D */}
+      {!show3D && (
+        <div className="absolute inset-0 bg-gradient-radial from-brand-cyan/20 via-transparent to-transparent opacity-40" />
+      )}
 
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-dark-900/50 to-dark-950" />

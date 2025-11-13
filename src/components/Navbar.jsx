@@ -57,6 +57,7 @@ export default function Navbar(){
             <NavItem to="/">Home</NavItem>
             <NavItem to="/services">Services</NavItem>
             <NavItem to="/about">About</NavItem>
+            <NavItem to="/articles">Articles</NavItem>
             <NavItem to="/contact">Contact</NavItem>
           </nav>
           <div className="md:hidden">
@@ -83,6 +84,7 @@ export default function Navbar(){
             <Link to="/" onClick={()=>setOpen(false)} className="block px-4 py-2 rounded-lg text-gray-300 hover:text-brand-cyan hover:bg-white/10 transition-colors">Home</Link>
             <Link to="/services" onClick={()=>setOpen(false)} className="block px-4 py-2 rounded-lg text-gray-300 hover:text-brand-cyan hover:bg-white/10 transition-colors">Services</Link>
             <Link to="/about" onClick={()=>setOpen(false)} className="block px-4 py-2 rounded-lg text-gray-300 hover:text-brand-cyan hover:bg-white/10 transition-colors">About</Link>
+            <Link to="/articles" onClick={()=>setOpen(false)} className="block px-4 py-2 rounded-lg text-gray-300 hover:text-brand-cyan hover:bg-white/10 transition-colors">Articles</Link>
             <Link to="/contact" onClick={()=>setOpen(false)} className="block px-4 py-2 rounded-lg text-gray-300 hover:text-brand-cyan hover:bg-white/10 transition-colors">Contact</Link>
           </nav>
         </motion.div>

@@ -1,7 +1,7 @@
 ﻿import React from 'react'
-import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { Mail, MapPin, Clock, CheckCircle2, Zap, Target, Shield, Headphones } from 'lucide-react'
+import Seo from '../components/Seo'
 import ContactForm from '../components/ContactForm'
 
 export default function Contact(){
@@ -21,11 +21,14 @@ export default function Contact(){
 
   return (
     <div className="pt-24 pb-20 min-h-screen">
-      <Helmet>
-        <title>Contact Us  Dev2Production.Tech</title>
-        <meta name="description" content="Get in touch with Dev2Production.Tech for custom software development, technical consulting, or partnership opportunities. Response within 4 business hours." />
-        <meta name="keywords" content="contact software development, custom application inquiry, technical consulting" />
-      </Helmet>
+      <Seo 
+        title="Contact Us | Dev2Production.Tech - Get Your Free DevOps Assessment"
+        description="Get in touch with Dev2Production.Tech for DevOps automation, cloud engineering, or CI/CD pipeline consulting. Free assessment available. Response within 4 business hours."
+        keywords="DevOps consulting, Cloud engineering contact, CI/CD consultation, Infrastructure automation inquiry, DevOps assessment"
+        url="/contact"
+        image="/meta/og-image.png"
+        type="website"
+      />
       
       <div className="max-w-7xl mx-auto px-4">
         <motion.div

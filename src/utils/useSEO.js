@@ -32,6 +32,12 @@ const SEO_CONFIG = {
     keywords: 'DevOps Project, Cloud Migration, CI/CD Implementation, Infrastructure as Code Project, Kubernetes Migration',
     canonical: 'https://dev2production.tech/#/project-inquiry'
   },
+  '/articles': {
+    title: 'DevOps & Cloud Engineering Articles | Expert Insights | Dev2Production.Tech',
+    description: 'Expert articles on DevOps, cloud engineering, CI/CD, Kubernetes, Terraform, and modern software delivery. Learn best practices and optimization techniques.',
+    keywords: 'DevOps Articles, Cloud Engineering Blog, CI/CD Guides, Kubernetes Tutorials, Terraform Best Practices, Infrastructure as Code',
+    canonical: 'https://dev2production.tech/#/articles'
+  },
   '/privacy-policy': {
     title: 'Privacy Policy | Dev2Production.Tech',
     description: 'Privacy policy for Dev2Production.Tech — learn how we protect your data and respect your privacy.',

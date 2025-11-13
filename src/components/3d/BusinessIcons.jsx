@@ -39,7 +39,7 @@ export function NetworkGlobe({ position = [0, 0, 0] }) {
   const groupRef = useRef()
   const particlesRef = useRef()
   
-  const particleCount = 200
+  const particleCount = 150
   const positions = new Float32Array(particleCount * 3)
   
   for (let i = 0; i < particleCount; i++) {
@@ -61,7 +61,7 @@ export function NetworkGlobe({ position = [0, 0, 0] }) {
   return (
     <group ref={groupRef} position={position}>
       <mesh>
-        <sphereGeometry args={[2, 64, 64]} />
+        <sphereGeometry args={[2, 32, 32]} />
         <meshStandardMaterial
           color="#0ea5e9"
           wireframe

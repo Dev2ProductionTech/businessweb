@@ -15,7 +15,7 @@ export default function AnimatedSphere({ position = [0, 0, 0], color = "#0ea5e9"
 
   return (
     <Float floatIntensity={0.6} rotationIntensity={0.4} speed={1}>
-      <Sphere ref={meshRef} args={[1, 128, 128]} position={position} scale={2} castShadow receiveShadow>
+      <Sphere ref={meshRef} args={[1, 64, 64]} position={position} scale={2} castShadow receiveShadow>
         <MeshDistortMaterial
           color={color}
           attach="material"

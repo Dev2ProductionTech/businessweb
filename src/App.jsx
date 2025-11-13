@@ -7,6 +7,8 @@ import About from './pages/About'
 import Services from './pages/Services'
 import Contact from './pages/Contact'
 import ProjectInquiry from './pages/ProjectInquiry'
+import Blog from './pages/Blog'
+import BlogPost from './pages/BlogPost'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsOfService from './pages/TermsOfService'
 import CookiePolicy from './pages/CookiePolicy'
@@ -62,6 +64,8 @@ export default function App(){
           <Route path="/services" element={<PageLayout><Services/></PageLayout>} />
           <Route path="/contact" element={<PageLayout><Contact/></PageLayout>} />
           <Route path="/project-inquiry" element={<PageLayout><ProjectInquiry/></PageLayout>} />
+          <Route path="/articles" element={<PageLayout><Blog/></PageLayout>} />
+          <Route path="/articles/:slug" element={<PageLayout><BlogPost/></PageLayout>} />
           <Route path="/privacy-policy" element={<PageLayout><PrivacyPolicy/></PageLayout>} />
           <Route path="/terms-of-service" element={<PageLayout><TermsOfService/></PageLayout>} />
           <Route path="/cookie-policy" element={<PageLayout><CookiePolicy/></PageLayout>} />

@@ -1,8 +1,9 @@
 import React, { Suspense } from 'react'
-import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { Globe, Code, Smartphone, Cloud, Palette, Lightbulb, Zap, Shield, Headphones, Target, CheckCircle } from 'lucide-react'
-import ServicesScene from '../components/3d/ServicesScene'
+import Seo from '../components/Seo'
+import CloudScene from '../components/3d/CloudScene'
+import MonitoringScene from '../components/3d/MonitoringScene'
 
 export default function Services(){
   const services = [
@@ -105,11 +106,14 @@ export default function Services(){
 
   return (
     <div className="pt-24 pb-20 min-h-screen">
-      <Helmet>
-        <title>Services — Dev2Production.Tech</title>
-        <meta name="description" content="Professional software development services: Interactive Web Experiences, Enterprise Applications, Mobile Development, Cloud Infrastructure, Product Design, and Technical Advisory." />
-        <meta name="keywords" content="software development services, web development, mobile app development, cloud infrastructure, product design" />
-      </Helmet>
+      <Seo 
+        title="DevOps & Cloud Engineering Services | Dev2Production.Tech"
+        description="Comprehensive DevOps automation, CI/CD pipelines, cloud infrastructure, Kubernetes orchestration, monitoring solutions, and Infrastructure as Code services for modern enterprises."
+        keywords="DevOps services, CI/CD pipelines, Cloud infrastructure, Kubernetes, Docker, Terraform, Infrastructure as Code, DevSecOps, Monitoring, Site Reliability Engineering"
+        url="/services"
+        image="/meta/og-image.png"
+        type="website"
+      />
       
       <div className="max-w-7xl mx-auto px-4">
         <motion.div
@@ -135,16 +139,20 @@ export default function Services(){
           </motion.a>
         </motion.div>
 
-        {/* 3D Services Visualization */}
+        {/* 3D Cloud Infrastructure Visualization */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mb-20"
+          className="glass-card rounded-2xl p-8 mb-20"
         >
-          <Suspense fallback={<div className="h-96 glass rounded-2xl animate-pulse" />}>
-            <ServicesScene />
+          <div className="text-center mb-6">
+            <h2 className="text-3xl font-bold text-white mb-2">Cloud Infrastructure Architecture</h2>
+            <p className="text-gray-400">Scalable, resilient systems built for modern workloads</p>
+          </div>
+          <Suspense fallback={<div className="h-96 rounded-xl animate-pulse bg-dark-800/50" />}>
+            <CloudScene />
           </Suspense>
         </motion.div>
 
@@ -205,6 +213,23 @@ export default function Services(){
             )
           })}
         </div>
+
+        {/* 3D Monitoring Dashboard Visualization */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="glass-card rounded-2xl p-8 mb-20"
+        >
+          <div className="text-center mb-6">
+            <h2 className="text-3xl font-bold text-white mb-2">Real-Time System Monitoring</h2>
+            <p className="text-gray-400">Comprehensive observability for production systems</p>
+          </div>
+          <Suspense fallback={<div className="h-96 rounded-xl animate-pulse bg-dark-800/50" />}>
+            <MonitoringScene />
+          </Suspense>
+        </motion.div>
 
         {/* Why Choose Us */}
         <motion.div

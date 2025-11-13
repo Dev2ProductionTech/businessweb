@@ -1,10 +1,11 @@
 import React, { Suspense } from 'react'
-import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { ArrowRight, Code2, Layers, Zap, Shield } from 'lucide-react'
+import Seo from '../components/Seo'
 import Hero from '../components/Hero'
 import Testimonials from '../components/Testimonials'
-import CodeScene from '../components/3d/CodeScene'
+import FeaturedArticles from '../components/FeaturedArticles'
+import PipelineScene from '../components/3d/PipelineScene'
 import { testimonials, stats } from '../data/testimonials'
 
 export default function Home(){
@@ -28,11 +29,14 @@ export default function Home(){
 
   return (
     <div className="pt-16">
-      <Helmet>
-        <title>Dev2Production.Tech — Enterprise Software Development</title>
-        <meta name="description" content="Professional software development firm building production-grade applications for growing companies. Specializing in web applications, mobile solutions, and cloud infrastructure." />
-        <meta name="keywords" content="software development, application development, web development, mobile apps, cloud infrastructure" />
-      </Helmet>
+      <Seo 
+        title="Dev2Production.Tech | DevOps, Cloud Engineering & Software Development Services"
+        description="Transform your software delivery with expert DevOps automation, cloud infrastructure, and continuous delivery solutions. We help startups and enterprises ship faster and scale smarter."
+        keywords="DevOps, CI/CD, Cloud Infrastructure, Automation, AWS, Azure, GCP, Kubernetes, Docker, Terraform, Infrastructure as Code, DevSecOps, FinOps, Continuous Delivery"
+        url="/"
+        image="/meta/og-image.png"
+        type="website"
+      />
       
       <Hero />
       
@@ -78,15 +82,20 @@ export default function Home(){
             })}
           </div>
 
-          {/* 3D Code Visualization */}
+          {/* 3D CI/CD Pipeline Visualization */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
+            className="glass-card rounded-2xl p-8"
           >
-            <Suspense fallback={<div className="h-64 glass rounded-2xl animate-pulse" />}>
-              <CodeScene />
+            <div className="text-center mb-6">
+              <h3 className="text-2xl font-bold text-white mb-2">Continuous Delivery Pipeline</h3>
+              <p className="text-gray-400">Automated workflow from code to production</p>
+            </div>
+            <Suspense fallback={<div className="h-96 rounded-xl animate-pulse bg-dark-800/50" />}>
+              <PipelineScene />
             </Suspense>
           </motion.div>
         </div>
@@ -201,6 +210,9 @@ export default function Home(){
           </div>
         </div>
       </section>
+
+      {/* Featured Articles Section */}
+      <FeaturedArticles />
 
       {/* Final CTA */}
       <section className="relative py-24">

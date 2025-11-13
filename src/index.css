@@ -18,6 +18,31 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Custom Scrollbar for TOC */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(6, 182, 212, 0.3) rgba(17, 24, 39, 0.3);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(17, 24, 39, 0.3);
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(6, 182, 212, 0.3);
+  border-radius: 3px;
+  transition: background 0.2s;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(6, 182, 212, 0.5);
+}
+
 /* Glassmorphism utility */
 .glass {
   background: rgba(255, 255, 255, 0.05);
@@ -48,9 +73,122 @@ html {
   background-clip: text;
 }
 
+/* Blog Content Styling */
+.blog-content {
+  @apply text-gray-300;
+}
+
+.blog-content h1,
+.blog-content h2,
+.blog-content h3,
+.blog-content h4 {
+  @apply font-bold tracking-tight;
+}
+
+.blog-content a {
+  @apply text-brand-cyan hover:text-brand-cyan/80 underline transition-colors;
+}
+
+.blog-content code {
+  @apply text-sm;
+}
+
+.blog-content pre {
+  @apply rounded-xl my-6 overflow-x-auto;
+}
+
+.blog-content img {
+  @apply rounded-lg my-6;
+}
+
+/* HTML Tables in Blog Content */
+.blog-content .table-container {
+  @apply w-full overflow-x-auto my-8;
+}
+
+.blog-content .styled-table {
+  @apply w-full border-collapse rounded-lg overflow-hidden;
+  background: rgba(255, 255, 255, 0.02);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.blog-content .styled-table thead {
+  background: linear-gradient(135deg, rgba(255, 106, 0, 0.15) 0%, rgba(0, 232, 255, 0.15) 100%);
+}
+
+.blog-content .styled-table thead th {
+  @apply px-6 py-4 text-left font-semibold text-brand-cyan border-b-2 border-brand-cyan/30;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.blog-content .styled-table tbody tr {
+  @apply border-b border-white/5 transition-colors duration-200;
+}
+
+.blog-content .styled-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.blog-content .styled-table tbody tr:last-child {
+  @apply border-b-0;
+}
+
+.blog-content .styled-table tbody td {
+  @apply px-6 py-4 text-gray-300;
+}
+
+.blog-content .styled-table tbody td:first-child {
+  @apply font-semibold text-white;
+}
+
+.blog-content .styled-table tbody td strong {
+  @apply text-brand-orange;
+}
+
+/* Scroll margin for smooth scrolling to headings */
+.scroll-mt-24 {
+  scroll-margin-top: 6rem;
+}
+
+/* Markdown Tables (Fallback) */
+.blog-content table {
+  @apply w-full my-6 border-collapse;
+}
+
+.blog-content th,
+.blog-content td {
+  @apply border border-white/10 px-4 py-2;
+}
+
+.blog-content th {
+  @apply bg-white/5 font-semibold;
+}
+
+/* Line clamp utilities */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 /* Animations */
 .fade-in {
   animation: fadeIn 600ms ease-out both;
+}
+
+/* Radial gradient utility */
+.bg-gradient-radial {
+  background: radial-gradient(circle, var(--tw-gradient-stops));
 }
 
 @keyframes fadeIn {
@@ -117,3 +255,26 @@ html {
   background: linear-gradient(to bottom, #38bdf8, #a78bfa);
 }
 
+/* TOC Sidebar custom scrollbar */
+.toc-scrollable::-webkit-scrollbar {
+  width: 6px;
+}
+
+.toc-scrollable::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.3);
+  border-radius: 3px;
+}
+
+.toc-scrollable::-webkit-scrollbar-thumb {
+  background: rgba(0, 232, 255, 0.3);
+  border-radius: 3px;
+}
+
+.toc-scrollable::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 232, 255, 0.5);
+}
+
+/* Scroll margin for heading anchors */
+.scroll-mt-24 {
+  scroll-margin-top: 6rem;
+}

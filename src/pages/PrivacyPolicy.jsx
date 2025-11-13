@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Shield, Mail, Lock, Eye, Database, UserCheck, Globe, FileText } from 'lucide-react';
+import Seo from '../components/Seo';
 
 const PrivacyPolicy = () => {
   const lastUpdated = 'January 2025';
@@ -141,6 +142,15 @@ const PrivacyPolicy = () => {
 
   return (
     <div className="min-h-screen bg-dark-950 text-dark-100">
+      <Seo 
+        title="Privacy Policy | Dev2Production.Tech"
+        description="Learn how Dev2Production.Tech collects, uses, and protects your personal information. Our commitment to data privacy and security."
+        keywords="privacy policy, data protection, GDPR compliance, security policy"
+        url="/privacy"
+        image="/meta/og-image.png"
+        type="website"
+      />
+      
       {/* Hero Header */}
       <section className="relative py-20 overflow-hidden border-b border-dark-800">
         <div className="absolute inset-0 bg-gradient-dark opacity-50"></div>

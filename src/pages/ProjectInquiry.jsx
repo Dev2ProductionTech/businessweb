@@ -1,7 +1,7 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Rocket, CheckCircle2, Users, Clock, Target } from 'lucide-react';
+import Seo from '../components/Seo';
 import ProjectInquiryForm from '../components/ProjectInquiryForm';
 
 export default function ProjectInquiry() {
@@ -14,11 +14,14 @@ export default function ProjectInquiry() {
 
   return (
     <div className="pt-24 pb-20 min-h-screen">
-      <Helmet>
-        <title>Start Your Project — Dev2Production.Tech</title>
-        <meta name="description" content="Ready to build your next project? Fill out our detailed project inquiry form and get a free consultation within 4 business hours." />
-        <meta name="keywords" content="project inquiry, custom software project, web development project, mobile app project" />
-      </Helmet>
+      <Seo 
+        title="Start Your DevOps Project | Dev2Production.Tech"
+        description="Ready to transform your deployment process? Fill out our project inquiry form and get a free DevOps assessment within 4 business hours."
+        keywords="DevOps project inquiry, CI/CD consultation, Cloud infrastructure project, DevOps transformation, Infrastructure automation"
+        url="/project-inquiry"
+        image="/meta/og-image.png"
+        type="website"
+      />
 
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
